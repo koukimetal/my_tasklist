@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tasks</title>
+</head>
+<body>
+    <h1>Tasks</h1>
+    <form method="post">
+        <ul>
+            {% for task in tasks %}
+            <li><input type="checkbox" name="tasks" value="{{task.id}}"><a>{{task.name}}</a></li>
+            {% endfor %}
+        </ul>
+        <label for="new_task">Task Name</label>
+        <input id="new_task" name="name" type="text">
+        <input type="submit" name="action" value="ADD">
+        <input type="submit" name="action" value="REMOVE">
+    </form>
+    <form method="get">
+        <label for="searchArea">Search:</label>
+        <input id="searchArea" type="text" name="search">
+    </form>
+    {% if page > 0 %}
+    <a href="./?page={{page-1}}">prev</a>
+    {% endif %}
+    {% if tasks|length != 0 %}
+    <a href="./?page={{page+1}}">next</a>
+    {% endif %}
+</body>
+</html>
