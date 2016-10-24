@@ -7,7 +7,7 @@ app = Flask(__name__)
 env = Environment(autoescape=True, loader=PackageLoader('webapp', 'templates'))
 
 PAGE_SIZE = 5
-# TODO search
+
 
 def render_tasks(page=0, search=None):
     tasks = None
